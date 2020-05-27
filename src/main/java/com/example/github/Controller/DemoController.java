@@ -1,6 +1,8 @@
 package com.example.github.Controller;
 
 import com.example.github.Entity.DO.DemoDO;
+import com.example.github.Service.DemoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class DemoController {
+    @Autowired
+    private DemoService demoService;
 
     @GetMapping("demoGet")
     public String DemoGet(String demo){
@@ -17,8 +21,9 @@ public class DemoController {
     }
 
     @PostMapping("demoPost")
-    public String DemoPost(DemoDO demo){
-        int i = 1 / 0;
+    public String DemoPost(DemoDO demo) throws InterruptedException {
+        String s = demoService.DemoServicetest();
+        Thread.sleep(2000);
         return demo + "如何赚钱";
     }
 }

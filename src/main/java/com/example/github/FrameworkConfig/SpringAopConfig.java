@@ -25,6 +25,7 @@ public class SpringAopConfig {
     private static final ThreadLocal<Long> timeTreadLocal = new ThreadLocal<>();
     /**
      * 定义切入点，切入点为com.example.github下的所有函数
+     * 包括 controller层的打印以及 service层的打印
      */
     @Pointcut("execution(public * com.example.github..*.*(..))")
     public void webLog(){}
@@ -36,6 +37,7 @@ public class SpringAopConfig {
      */
     @Before("webLog()")
     public void doBefore(JoinPoint joinPoint) throws Throwable {
+
         // 接收到请求，记录请求内容
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
@@ -46,6 +48,7 @@ public class SpringAopConfig {
         logger.info("IP地址 : {}" , request.getRemoteAddr());
         logger.info("请求接口地址 : {}" , joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
         logger.info("请求参数 : {} " , Arrays.toString(joinPoint.getArgs()));
+        logger.info("\n");
     }
 
     @AfterReturning(returning = "ret",pointcut = "webLog()")
