@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 public class DemoServiceImpl implements DemoService {
     @Override
     public String DemoServicetest() {
-        String s = testDemo("11");
+        String s = testDemo("1");
         int i = 1/0;
         return i + s;
     }
