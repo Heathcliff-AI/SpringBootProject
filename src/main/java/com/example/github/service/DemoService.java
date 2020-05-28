@@ -1,4 +1,4 @@
-package com.example.github.Service;
+package com.example.github.service;
 
 import com.example.github.Utils.ResultEnpty;
 

@@ -1,6 +1,6 @@
-package com.example.github.Dao;
+package com.example.github.dao;
 
-import com.example.github.Entity.TbArea;
+import com.example.github.entity.TbArea;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 

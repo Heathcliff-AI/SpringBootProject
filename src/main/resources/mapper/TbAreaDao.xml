@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.github.Dao.TbAreaDao">
+<mapper namespace="com.example.github.dao.TbAreaDao">
 
-    <resultMap type="com.example.github.Entity.TbArea" id="TbAreaMap">
+    <resultMap type="com.example.github.entity.TbArea" id="TbAreaMap">
         <result property="lastEditTime" column="last_edit_time" jdbcType="TIMESTAMP"/>
         <result property="crateTime" column="crate_time" jdbcType="TIMESTAMP"/>
         <result property="areaName" column="area_name" jdbcType="VARCHAR"/>

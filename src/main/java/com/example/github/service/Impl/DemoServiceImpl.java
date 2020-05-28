@@ -1,8 +1,8 @@
-package com.example.github.Service.Impl;
+package com.example.github.service.Impl;
 
-import com.example.github.Dao.TbAreaDao;
-import com.example.github.Entity.TbArea;
-import com.example.github.Service.DemoService;
+import com.example.github.dao.TbAreaDao;
+import com.example.github.entity.TbArea;
+import com.example.github.service.DemoService;
 import com.example.github.Utils.ResultEnpty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

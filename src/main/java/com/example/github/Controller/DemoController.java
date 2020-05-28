@@ -1,7 +1,7 @@
 package com.example.github.Controller;
 
-import com.example.github.Entity.DO.DemoDO;
-import com.example.github.Service.DemoService;
+import com.example.github.entity.DO.DemoDO;
+import com.example.github.service.DemoService;
 import com.example.github.Utils.ResultEnpty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

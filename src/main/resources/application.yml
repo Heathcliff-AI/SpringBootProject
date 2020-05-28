@@ -21,3 +21,8 @@ spring:
   messages:
     encoding: utf-8
 
+#打印日志
+logging:
+  level:
+    com.example.github.Dao: debug
+

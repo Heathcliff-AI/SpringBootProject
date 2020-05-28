@@ -1,4 +1,4 @@
-package com.example.github.Dao;
+package com.example.github.dao;
 
 import org.springframework.stereotype.Repository;
 

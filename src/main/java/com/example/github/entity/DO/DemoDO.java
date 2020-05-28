@@ -1,4 +1,4 @@
-package com.example.github.Entity.DO;
+package com.example.github.entity.DO;
 
 import lombok.Data;
 

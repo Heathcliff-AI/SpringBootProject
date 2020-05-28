@@ -27,7 +27,7 @@ public class SpringAopConfig {
      * 定义切入点，切入点为com.example.github下的所有函数
      * 包括 controller层的打印以及 service层的打印
      */
-    @Pointcut("execution(public * com.example.github..*.*(..))")
+    @Pointcut("execution(public * com.example.github.Controller..*.*(..))")
     public void webLog(){}
 
     /**
