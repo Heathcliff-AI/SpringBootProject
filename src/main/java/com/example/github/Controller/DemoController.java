@@ -2,6 +2,7 @@ package com.example.github.Controller;
 
 import com.example.github.Entity.DO.DemoDO;
 import com.example.github.Service.DemoService;
+import com.example.github.Utils.ResultEnpty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,9 +22,10 @@ public class DemoController {
     }
 
     @PostMapping("demoPost")
-    public String DemoPost(DemoDO demo) throws InterruptedException {
-        String s = demoService.DemoServicetest();
-        Thread.sleep(2000);
-        return demo + "如何赚钱";
+    public ResultEnpty DemoPost(DemoDO demo) throws InterruptedException {
+        ResultEnpty resultEnpty = demoService.DemoServicetest();
+        Object date = resultEnpty.getDate();
+        return resultEnpty;
+
     }
 }

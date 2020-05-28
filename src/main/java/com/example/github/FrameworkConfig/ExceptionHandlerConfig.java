@@ -25,7 +25,7 @@ public class ExceptionHandlerConfig {
     @ExceptionHandler(value = Exception.class)
     public Map<String,Object> exceptionHandler(Exception ex){
         Map<String,Object> map  = new HashMap<>();
-        map.put("code",1001);
+        map.put("code",-1);
         map.put("mag",ex.getMessage());
         //发生异常进行日志记录，写入数据库或者其他处理，此处省略
         logger.error("捕获异常" , ex);

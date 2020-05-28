@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.github.Dao.TbAreaDao">
+
+    <resultMap type="com.example.github.Entity.TbArea" id="TbAreaMap">
+        <result property="lastEditTime" column="last_edit_time" jdbcType="TIMESTAMP"/>
+        <result property="crateTime" column="crate_time" jdbcType="TIMESTAMP"/>
+        <result property="areaName" column="area_name" jdbcType="VARCHAR"/>
+        <result property="priority" column="priority" jdbcType="INTEGER"/>
+        <result property="areaId" column="area_id" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="TbAreaMap">
+        select
+          last_edit_time, crate_time, area_name, priority, area_id
+        from spring_database.tb_area
+        where area_id = #{areaId}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="TbAreaMap">
+        select
+          last_edit_time, crate_time, area_name, priority, area_id
+        from spring_database.tb_area
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="TbAreaMap" parameterType="TbArea">
+        select
+          last_edit_time, crate_time, area_name, priority, area_id
+        from spring_database.tb_area
+
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="areaId" useGeneratedKeys="true">
+        insert into spring_database.tb_area(last_edit_time, crate_time, area_name, priority)
+        values (#{lastEditTime}, #{crateTime}, #{areaName}, #{priority})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update spring_database.tb_area
+        <set>
+            <if test="lastEditTime != null">
+                last_edit_time = #{lastEditTime},
+            </if>
+            <if test="crateTime != null">
+                crate_time = #{crateTime},
+            </if>
+            <if test="areaName != null and areaName != ''">
+                area_name = #{areaName},
+            </if>
+            <if test="priority != null">
+                priority = #{priority},
+            </if>
+        </set>
+        where area_id = #{areaId}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from spring_database.tb_area where area_id = #{areaId}
+    </delete>
+
+</mapper>
