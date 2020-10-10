@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.example.github.Dao")
+@MapperScan("com.example.github.dao")
 public class GithubApplication {
 
     public static void main(String[] args) {

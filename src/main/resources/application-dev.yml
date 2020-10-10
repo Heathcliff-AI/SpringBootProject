@@ -1,0 +1,35 @@
+server:
+  port: 8079
+  servlet:
+    context-path: /test
+
+mybatis:
+  mapperLocations: classpath*:mapper/**.xml
+  type-aliases-package: com.example.github.entity
+  configuration:
+    map-underscore-to-camel-case: true
+
+spring:
+  redis:
+    host: 94.191.50.122
+    port: 6379
+    password: Asd159752
+    database: 1
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 8
+        min-idle: 0
+  datasource:
+    url: jdbc:mysql://94.191.50.122:3306/spring_database?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password: Asd159752
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  messages:
+    encoding: utf-8
+
+logging:
+  level:
+    com.example.github.Dao: debug
+
