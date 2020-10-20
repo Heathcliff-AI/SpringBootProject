@@ -1,43 +1,66 @@
 server:
   port: 8079
   servlet:
+    # 请求地址前缀
     context-path: /test
 
+# MyBatis配置
 mybatis:
+  # 配置mapper的扫描，找到所有的mapper.xml映射文件
   mapperLocations: classpath*:mapper/**.xml
+  #指定实体类
   type-aliases-package: com.example.github.entity
   configuration:
+    #开启驼峰命名
     map-underscore-to-camel-case: true
 
+#数据库连接
 spring:
   profiles:
+    #打包分环境模式
     active: @package.environment@
+  #redis连接
   redis:
+    #地址
     host: 94.191.50.122
+    #端口
     port: 6379
+    #米啊
     password: Asd159752
+    #redis库
     database: 1
     lettuce:
       pool:
+        # 连接池最大连接数（使用负值表示没有限制） 默认 8
         max-active: 8
+        # 连接池最大阻塞等待时间（使用负值表示没有限制） 默认 -1
         max-wait: -1
+        # 连接池中的最大空闲连接 默认 8
         max-idle: 8
+        # 连接池中的最小空闲连接 默认 0
         min-idle: 0
-
-
-
+  #数据库连接
   datasource:
+    #数据库连接地址
     url: jdbc:mysql://94.191.50.122:3306/spring_database?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    #账号
     username: root
+    #密码
     password: Asd159752
+    #驱动
     driver-class-name: com.mysql.cj.jdbc.Driver
   messages:
     encoding: utf-8
 
+#日志
 logging:
   level:
     com.example.github.Dao: debug
+  file:
+    #日志路径地址
+    path: D:\log\sb2
 
+#性能监控模块
 javamelody:
   # Enable JavaMelody auto-configuration (optional, default: true)
   enabled: true
@@ -60,3 +83,5 @@ javamelody:
     #storage-directory: /tmp/javamelody
     # to change the default "/monitoring" path:
     #monitoring-path: /admin/performance
+
+

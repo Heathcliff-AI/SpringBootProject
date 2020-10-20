@@ -5,6 +5,8 @@ import com.example.github.Utils.RedisUtils;
 import com.example.github.Utils.ResultEnpty;
 import com.example.github.entity.DO.DemoDO;
 import com.example.github.service.DemoService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,6 +21,8 @@ import java.util.Map;
  */
 @RestController
 public class DemoController {
+
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
     @Autowired
     private DemoService demoService;
 
@@ -28,11 +32,11 @@ public class DemoController {
     @GetMapping("demoGet")
     public String DemoGet(String demo){
         Map<String , Object > map = new HashMap<>();
-        map.put("人生" , "我们看见了很多一起白头偕老走到最后，那么你要不要尝试独自一人走过一段人生呢");
         map.put("游离" , "当所有想的说的要的爱的,都挤在心脏,行李箱里装不下我 想去的远方");
         String msg = Enumeration.OPERATION_SUCCESS.getMsg();
-
-
+        logger.info("info");
+        logger.warn("warn");
+        logger.error("error");
         boolean b = redisUtils.hmset("孤独", map, 1000);
         return msg + "如何赚钱" + b;
     }

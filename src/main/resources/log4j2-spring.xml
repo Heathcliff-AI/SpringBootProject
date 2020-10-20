@@ -8,17 +8,18 @@
     <Properties>
         <!-- 格式化输出：%date表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度 %msg：日志消息，%n是换行符-->
         <!-- %logger{36} 表示 Logger 名字最长36个字符 -->
-        <property name="LOG_PATTERN" value="%date{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n" />
+        <property name="LOG_PATTERN" value="%date{HH:mm:ss.SSS} [%thread] %highlight{%-5level} %highlight{%logger{36}} - %highlight{%msg%n}" />
         <!-- 定义日志存储的路径 -->
-        <property name="FILE_PATH" value="D:\log\sb" />
-        <property name="FILE_NAME" value="sb2.3" />
+        <property name="FILE_PATH" value="${sys:log.path}" />
+        <property name="FILE_NAME" value="boot" />
     </Properties>
 
     <appenders>
 
         <console name="Console" target="SYSTEM_OUT">
             <!--输出日志的格式-->
-            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <PatternLayout pattern="${LOG_PATTERN}"
+                           disableAnsi="false" noConsoleNoAnsi="false"/>
             <!--控制台只输出level及其以上级别的信息（onMatch），其他的直接拒绝（onMismatch）-->
             <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
         </console>
